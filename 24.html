@@ -1,0 +1,19 @@
+<html> 
+<head> 
+<title>Сочетания</title> 
+<script>
+let str=prompt("Введите n", 6);
+let str2=prompt("Введите m", 4);
+n=str;
+m=str2;
+function factorial(n) {
+  return (n != 1) ? n * factorial(n - 1) : 1;
+}
+document.writeln("Сочетания из "+n+" по " +m+ "равны:");
+res = factorial(n)/(factorial(m)*factorial(n-m));
+document.writeln(res);
+</script>
+</head> 
+<body> 
+</body> 
+</html>

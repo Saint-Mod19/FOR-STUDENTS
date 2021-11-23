@@ -1,0 +1,77 @@
+<html>
+<head><title>Тест</title>
+<style>
+p {
+ font-size:24px;
+}
+input {
+ font-size:24px;
+}
+</style>
+</head>
+<body style="background-color:#cecece;">
+<p>Выберите правильный ответ:</p>
+<form name="quiz" action="javascript:check();" class="quizform">
+<div class="quizsection">
+    <h2>Какая сетевая атака связана с превышением допустимых пределов функционирования сети?</h2>
+    <div class="answer">
+        <input name="q1" value="value1" id="value1" type="radio" checked="checked" />Подслушивание (Sniffing)
+    </div>
+    <div class="answer">
+        <input name="q1" value="value2" id="value2" type="radio" />Отказ в обслуживании (DoS –атака)
+    </div>
+    <div class="answer">
+        <input name="q1" value="value1" id="value3" type="radio" />Атака Man in–the–Middle (человек в середине)
+    </div>
+    <div class="answer">
+        <input name="q1" value="value1" id="value4" type="radio" />Угадывание ключа
+    </div>
+</div>
+<input value="Проверить" type="submit"/>
+</form>
+<script>
+var result;
+function check()
+{
+    var question;
+    var value1;
+    var value2;
+    question = 1;
+    value1 = 0;
+    value2 = 0;
+    result = "";
+    var choice;
+    for (question = 1; question <= 3; question++) {
+       var q = document.forms['quiz'].elements['q1'];
+          for (var i = 0; i < q.length; i++) {
+             if (q[i].checked) {
+                choice = q[i].value;
+                console.log (q[i].value);
+             }
+          }
+          if (choice == "value1") {
+             value1++;
+          }
+          if (choice == "value2") {
+             value2++;
+          }
+       }
+       console.log (q);
+       console.log (value2);
+    if (value2 == 0) {
+       // Нет правильных ответов
+       result = "Ответ неправильный. Вам надо прочитать теоретический материал по сетевым атакам.";
+    }
+    else if (value2 == 3) {
+       // Один правильный ответ
+       result = "Ответ правильный.";
+
+    }
+    else {
+       result = "404";
+    }
+ return result;
+ }
+</script>
+</body>
+</html>
